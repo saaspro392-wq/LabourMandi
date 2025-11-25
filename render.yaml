@@ -3,7 +3,7 @@ services:
     name: labourmandi
     runtime: node
     plan: free
-    buildCommand: npm ci --include=dev && npm run build && npm run db:push
+    buildCommand: npm install && npm run db:push && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
@@ -27,7 +27,7 @@ services:
       - key: RAZORPAY_KEY_SECRET
         sync: false
     healthCheckPath: /
-    
+
 databases:
   - name: labourmandi-db
     databaseName: labourmandi
